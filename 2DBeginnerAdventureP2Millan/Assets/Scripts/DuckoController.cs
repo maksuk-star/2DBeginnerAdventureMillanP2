@@ -8,11 +8,11 @@ public class DuckoController : MonoBehaviour
     float horizontal;
     float vertical;
 
-}
+
     // Start is called before the first frame update
     void Start()
     {
-          Rigidbody2d = GetComponent<Rigidbody2D>();
+          rigidbody2d = GetComponent<Rigidbody2D>();
 
     }
 
@@ -24,8 +24,8 @@ public class DuckoController : MonoBehaviour
 
 
         Vector2 position = transform.position;
-        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
-        position.y = position.y + 3.0f * vertical * Time.deltaTime;
+        position.x = position.x + 5.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 5.0f * vertical * Time.deltaTime;
 
          rigidbody2d.MovePosition(position);
     }
