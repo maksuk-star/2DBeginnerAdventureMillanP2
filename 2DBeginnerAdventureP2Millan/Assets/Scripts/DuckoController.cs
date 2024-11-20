@@ -5,8 +5,15 @@ using UnityEngine;
 public class DuckoController : MonoBehaviour
 {
     public float speed = 5.0f;
+
     public int maxHealth = 5;
-    int currentHealth = 1;
+    public float timeInvincible = 2;
+
+    public int health { get { return currentHealth; } }
+    int currentHealth;
+
+    bool isInvinciable;
+    float invincibleTimer;
 
 
     Rigidbody2D rigidbody2d;
@@ -27,6 +34,15 @@ public class DuckoController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        if(isInvincible)
+        {
+            invinciabletimer -= timeInvincible.deltaTime;
+            if(isInvinciable < 0 )
+            {
+                isInvinciable = false;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -40,6 +56,15 @@ public class DuckoController : MonoBehaviour
 
      public void ChangeHealth(int amount)
     {
+        if (amount < 0)
+        {
+            if(isInvinciable)
+            {
+                returne;
+            }
+            isInvincible = trie;
+            invincibleTimer = timeInvincible;
+        }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }

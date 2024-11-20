@@ -10,8 +10,12 @@ public class HealthCollectable : MonoBehaviour
         DuckoController controller = other.GetComponent<DuckoController>();
         if (controller != null)
         {
-            controller.ChangeHealth(1);
-            Destroy(gameObject);
+            if(controller.health < controller.maxHealth)
+            {
+                controller.ChangeHealth(1);
+                Destroy(gameObject);
+            }
+            
         }
         
     }
