@@ -35,10 +35,10 @@ public class DuckoController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        if(isInvincible)
+        if (isInvinciable)
         {
-            invinciabletimer -= timeInvincible.deltaTime;
-            if(isInvinciable < 0 )
+            invincibleTimer -= Time.deltaTime;
+            if(invincibleTimer < 0 )
             {
                 isInvinciable = false;
             }
@@ -60,9 +60,9 @@ public class DuckoController : MonoBehaviour
         {
             if(isInvinciable)
             {
-                returne;
+                return;
             }
-            isInvincible = trie;
+            isInvinciable = true;
             invincibleTimer = timeInvincible;
         }
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
