@@ -20,13 +20,15 @@ public class DuckoController : MonoBehaviour
     float horizontal;
     float vertical;
 
+    Animator animator;
+
     
     // Start is called before the first frame update
     void Start()
     {
           rigidbody2d = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
